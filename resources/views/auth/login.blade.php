@@ -77,7 +77,7 @@
                 {{ __('Jai oublié mon mot de passe?') }}
             </a>
             @endif<br>
-            <a href="#" class="text-center">Enregistrer une nouvelle adhésion</a>
+            <a href="{{ route('register') }}" class="text-center">Enregistrer une nouvelle adhésion</a>
 
         </div>
         <!-- /.login-box-body -->

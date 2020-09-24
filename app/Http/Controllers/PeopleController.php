@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Categorie;
 use App\People;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,7 @@ class PeopleController extends Controller
      */
     public function index()
     {
-        $peoples = People::all();
+        $peoples = People::with('categorie')->get();
 
         return view('peoples.index', compact('peoples'));
     }
@@ -26,7 +27,8 @@ class PeopleController extends Controller
      */
     public function create()
     {
-        return view('peoples.create');
+        $categories = Categorie::all();
+        return view('peoples.create', compact('peoples','categories'));
     }
 
     /**
@@ -43,7 +45,6 @@ class PeopleController extends Controller
             'title' => 'required',
             'ed_source' => 'required',
             'int_link' => 'required',
-            'int_categ' => 'required',
             'int_sub_categ' => 'required',
             'int_share_text' => 'required',
         ]);
@@ -54,9 +55,9 @@ class PeopleController extends Controller
             'title' => $request->get('title'),
             'ed_source' => $request->get('ed_source'),
             'int_link' => $request->get('int_link'),
-            'int_categ' => $request->get('int_categ'),
             'int_sub_categ' => $request->get('int_sub_categ'),
-            'int_share_text' => $request->get('int_share_text')
+            'int_share_text' => $request->get('int_share_text'),
+            'categorie_id' => $request->get('categorie_id')
         ]);
         $people->save();
         return redirect('/peoples')->with('success', 'people saved!');
@@ -81,8 +82,9 @@ class PeopleController extends Controller
      */
     public function edit($id)
     {
-        $poeple = People::find($id);
-        return view('poeples.edit', compact('poeple'));
+        $people = People::find($id);
+        $categories = Categorie::all();
+        return view('peoples.edit', compact('people','categories'));
     }
 
     /**
@@ -100,7 +102,6 @@ class PeopleController extends Controller
             'title' => 'required',
             'ed_source' => 'required',
             'int_link' => 'required',
-            'int_categ' => 'required',
             'int_sub_categ' => 'required',
             'int_share_text' => 'required'
         ]);
@@ -110,9 +111,9 @@ class PeopleController extends Controller
         $people->title = $request->get('title');
         $people->ed_source = $request->get('ed_source');
         $people->int_link = $request->get('int_link');
-        $people->int_categ = $request->get('int_categ');
         $people->int_sub_categ = $request->get('int_sub_categ');
         $people->int_share_text = $request->get('int_share_text');
+        $people->categorie_id = $request->get('categorie_id');
         $people->save();
 
         return redirect('/peoples')->with('success', 'People updated!');

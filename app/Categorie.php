@@ -4,12 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class People extends Model
+class Categorie extends Model
 {
     protected $guarded = [];
 
-    public function categories()
+    public function peoples()
     {
-        return $this->belongsTo('App\Categorie');
+        return $this->hasMany('App\People');
     }
 }

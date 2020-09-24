@@ -27,7 +27,8 @@
                     <th>Titre</th>
                     <th>Editeur Source</th>
                     <th>Interview Link</th>
-                    <th>Action</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
                 </tr>
             </thead>
             <tbody>
@@ -37,14 +38,23 @@
                     <td>{{$people->photo}}</td>
                     <td>{{$people->title}}</td>
                     <td>{{$people->ed_source}}</td>
-                    <td>{{$people->int_link}}</td>
-                    <td><a href="{{ route('peoples.edit',$people->id)}}" class="btn btn-primary">Edit</a></td>
+                    <td>{{$people->int_link}}</a></td>
+                    <td><a href="{{ route('peoples.edit',$people->id)}}"><span class="glyphicon glyphicon-edit"></span></a></td>
                     <td>
-                        <form action="{{ route('peoples.destroy', $people->id)}}" method="post">
-                            @csrf
-                            @method('DELETE')
-                            <button class="btn btn-danger" type="submit">Delete</button>
+                        <form id="delete-form-{{ $people->}}" method="post" action="{{ route('peoples.destroy', $people->id)}}" style="display: none">
+                            {{csrf_field()}}
+                            {{method_field('DELETE')}}
+
                         </form>
+
+                        <a href="" onclick=" if(confirm('Are you sure, you want to delete this ?'))
+                        {
+                            event.preventDefault();
+                            document.getElementById('delete-form-{{$people->id}}').submit();
+                        }
+                    else{
+                        event.preventDefault();
+                    }"><span class="glyphicon glyphicon-trash"></span></a>
                     </td>
                 </tr>
                 @endforeach
@@ -55,8 +65,8 @@
                     <th>Photo</th>
                     <th>Titre</th>
                     <th>Editeur Source</th>
-                    <th>Interview Link</th>
-                    <th>Action</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
                 </tr>
             </tfoot>
         </table>

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\People;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -23,6 +25,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $data = DB::table('People')->get();
+        return view('home', compact('data'));
     }
 }
