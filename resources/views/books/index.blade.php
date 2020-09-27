@@ -12,10 +12,10 @@
         @endif
     </div>
     <div class="box-header">
-        <h3 class="box-title">PEOEPLES</h3>
+        <h3 class="box-title">BOOKS</h3>
     </div>
     <div class="box-title">
-        <a style="margin: 19px;" href="{{ route('peoples.create')}}" class="btn btn-primary"><span class="glyphicon glyphicon-floppy-save"></span></a>
+        <a style="margin: 19px;" href="{{ route('books.create')}}" class="btn btn-primary"><span class="glyphicon glyphicon-floppy-save"></span></a>
     </div>
     <!-- /.box-header -->
     <div class="box-body">
@@ -24,9 +24,9 @@
                 <tr>
                     <th>Nom</th>
                     <th>Photo</th>
-                    <th>Titre</th>
-                    <th>Editeur Source</th>
-                    <th>Interview Link</th>
+                    <th>Auteur</th>
+                    <th>Editeur</th>
+                    <th>Person Name</th>
                     <th>Edit</th>
                     <th>Delete</th>
 
@@ -34,17 +34,17 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($peoples as $people)
+                @foreach($books as $book)
                 <tr>
-                    <td>{{$people->nom}}</td>
-                    <td>{{$people->photo}}</td>
-                    <td>{{$people->title}}</td>
-                    <td>{{$people->ed_source}}</td>
-                    <td>{{$people->int_link}}</td>
-                    <td><a href="{{ route('peoples.edit',$people->id)}}"><span class="glyphicon glyphicon-edit"></span></a></td>
+                    <td>{{$book->nom}}</td>
+                    <td>{{$book->photo}}</td>
+                    <td>{{$book->auteur}}</td>
+                    <td>{{$book->editeur}}</td>
+                    <td>{{$book->editeur}}</td>
+                    <td><a href="{{ route('books.edit',$book->id)}}"><span class="glyphicon glyphicon-edit"></span></a></td>
                     <td>
 
-                        <form id="delete-form-{{$people->id}}" method="POST" action="{{ route('peoples.destroy',$people->id)}}" style="display: none;">
+                        <form id="delete-form-{{$book->id}}" method="POST" action="{{ route('books.destroy',$book->id)}}" style="display: none;">
                             {{csrf_field()}}
                             {{method_field('DELETE')}}
 
@@ -61,9 +61,9 @@
                 <tr>
                     <th>Nom</th>
                     <th>Photo</th>
-                    <th>Titre</th>
-                    <th>Editeur Source</th>
-                    <th>Interview Link</th>
+                    <th>Auteur</th>
+                    <th>Editeur</th>
+                    <th>Person Name</th>
                     <th>Edit</th>
                     <th>Delete</th>
                 </tr>

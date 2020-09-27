@@ -327,11 +327,11 @@
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li class="active"><a href="#"><i class="fa fa-circle-o text-yellow"></i> ACCUEIL</a></li>
+                            <li class="active"><a href="{{ url('/home') }}"><i class="fa fa-circle-o text-yellow"></i> ACCUEIL</a></li>
                         </ul>
                     </li>
                     <li class="header">MENUS</li>
-                    <li><a href="#"><i class="fa fa-book text-red"></i> <span>BOOKS</span></a></li>
+                    <li><a href="{{ route('books.index') }}"><i class="fa fa-book text-red"></i> <span>BOOKS</span></a></li>
                     <li><a href="#"><i class="fa fa-book text-yellow"></i> <span>BOOKSTORE</span></a></li>
                     <li><a href="{{ route('peoples.index') }}"><i class="fa fa-user text-blue"></i> <span>PEOPLE</span></a></li>
                     <li><a href="#"><i class="fa fa-thumbs-up text-aqua"></i> <span>SUGGESTIONS</span></a></li>

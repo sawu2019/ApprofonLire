@@ -20,6 +20,48 @@ class PeopleController extends Controller
         return view('peoples.index', compact('peoples'));
     }
 
+    public function culture()
+    {
+        $peoples = People::where('categorie_id','1')->get();
+        return view('peoples.index', compact('peoples'));
+    }
+
+    public function economie()
+    {
+        $peoples = People::where('categorie_id','2')->get();
+        return view('peoples.index', compact('peoples'));
+    }
+
+    public function habitat()
+    {
+        $peoples = People::where('categorie_id','3')->get();
+        return view('peoples.index', compact('peoples'));
+    }
+
+    public function sante()
+    {
+        $peoples = People::where('categorie_id','4')->get();
+        return view('peoples.index', compact('peoples'));
+    }
+
+    public function social()
+    {
+        $peoples = People::where('categorie_id','5')->get();
+        return view('peoples.index', compact('peoples'));
+    }
+
+    public function sport()
+    {
+        $peoples = People::where('categorie_id','6')->get();
+        return view('peoples.index', compact('peoples'));
+    }
+
+    public function politique()
+    {
+        $peoples = People::where('categorie_id','7')->get();
+        return view('peoples.index', compact('peoples'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -127,9 +169,11 @@ class PeopleController extends Controller
      */
     public function destroy($id)
     {
-        $people = People::find($id);
-        $people->delete();
 
-        return redirect('/peoples')->with('success', 'People deleted!');
+        people::where('id', $id)->delete();
+        return redirect()->back();
+        //$people = People::find($id);
+        //$people->delete();
+        //return redirect('/peoples')->with('success', 'People deleted!');
     }
 }

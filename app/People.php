@@ -8,8 +8,13 @@ class People extends Model
 {
     protected $guarded = [];
 
-    public function categories()
+    public function categorie()
     {
         return $this->belongsTo('App\Categorie');
+    }
+
+    public function book()
+    {
+        return $this->belongsTo('App\Book');
     }
 }
