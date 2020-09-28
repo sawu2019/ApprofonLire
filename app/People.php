@@ -15,6 +15,6 @@ class People extends Model
 
     public function book()
     {
-        return $this->belongsTo('App\Book');
+        return $this->hasMany('App\Book');
     }
 }

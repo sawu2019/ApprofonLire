@@ -10,6 +10,6 @@ class Book extends Model
 
     public function people()
     {
-        return $this->hasMany('App\People');
+        return $this->belongsTo('App\People');
     }
 }

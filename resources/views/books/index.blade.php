@@ -40,7 +40,7 @@
                     <td>{{$book->photo}}</td>
                     <td>{{$book->auteur}}</td>
                     <td>{{$book->editeur}}</td>
-                    <td>{{$book->editeur}}</td>
+                    <td>{{$book->people->nom}}</td>
                     <td><a href="{{ route('books.edit',$book->id)}}"><span class="glyphicon glyphicon-edit"></span></a></td>
                     <td>
 
@@ -49,7 +49,7 @@
                             {{method_field('DELETE')}}
 
                         </form>
-                        <a href="" onclick="if(confirm('Vous voulais, supprimer ?')){event.preventDefault();document.getElementById('delete-form-{{$people->id}}').submit();}
+                        <a href="" onclick="if(confirm('Vous voulais, supprimer ?')){event.preventDefault();document.getElementById('delete-form-{{$book->id}}').submit();}
                         else
                         {event.preventDefault();}"><span class="glyphicon glyphicon-trash"></span></a>
                     </td>
