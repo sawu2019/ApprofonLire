@@ -310,7 +310,7 @@
                 <ul class="sidebar-menu">
                     <li class="header">NAVIGATION PRINCIPALE</li>
                     <li class="active treeview">
-                        <a href="#">
+                        <a href="{{ url('/home') }}">
                             <i class="fa fa-dashboard"></i> <span>TABLEAU DE BORD</span>
                             <span class="pull-right-container">
                                 <i class="fa fa-angle-left pull-right"></i>
@@ -324,7 +324,7 @@
                     <li><a href="{{ route('books.index') }}"><i class="fa fa-book text-red"></i> <span>BOOKS</span></a></li>
                     <li><a href="#"><i class="fa fa-book text-yellow"></i> <span>BOOKSTORE</span></a></li>
                     <li><a href="{{ route('peoples.index') }}"><i class="fa fa-user text-blue"></i> <span>PEOPLE</span></a></li>
-                    <li><a href="#"><i class="fa fa-thumbs-up text-aqua"></i> <span>SUGGESTIONS</span></a></li>
+                    <li><a href="{{ route('suggestions.index') }}"><i class="fa fa-thumbs-up text-aqua"></i> <span>SUGGESTIONS</span></a></li>
                 </ul>
             </section>
             <!-- /.sidebar -->
