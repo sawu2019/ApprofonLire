@@ -3,11 +3,13 @@
 @section('content')
 
 <div class="box">
-    <div class="col-sm-12">
+    <div class="col-sm-12"></br>
 
         @if(session()->get('success'))
-        <div class="alert alert-success">
-            {{ session()->get('success') }}
+        <div class="alert alert-info alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <h4><i class="icon fa fa-info"></i> Alert!</h4>
+            {{ session()->get('success') }}.
         </div>
         @endif
     </div>
