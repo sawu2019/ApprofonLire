@@ -21,7 +21,7 @@
             @csrf
             <div class="box-body">
                 <div class="form-group">
-                    <label for="nom">Nom</label>
+                    <label for="nom">Personnalite</label>
                     <input type="text" class="form-control" name="nom" id="nom" placeholder="Entrer un nom" />
                 </div>
                 <div class="form-group">

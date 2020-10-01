@@ -321,9 +321,9 @@
                         </ul>
                     </li>
                     <li class="header">MENUS</li>
-                    <li><a href="{{ route('books.index') }}"><i class="fa fa-book text-red"></i> <span>BOOKS</span></a></li>
-                    <li><a href="#"><i class="fa fa-book text-yellow"></i> <span>BOOKSTORE</span></a></li>
-                    <li><a href="{{ route('peoples.index') }}"><i class="fa fa-user text-blue"></i> <span>PEOPLE</span></a></li>
+                    <li><a href="{{ route('books.index') }}"><i class="fa fa-book text-red"></i> <span>LIVRES</span></a></li>
+                    <li><a href="#"><i class="fa fa-book text-yellow"></i> <span>LIBRAIRIE</span></a></li>
+                    <li><a href="{{ route('peoples.index') }}"><i class="fa fa-user text-blue"></i> <span>PERSONNALITE</span></a></li>
                     <li><a href="{{ route('suggestions.index') }}"><i class="fa fa-thumbs-up text-aqua"></i> <span>SUGGESTIONS</span></a></li>
                 </ul>
             </section>
@@ -334,15 +334,12 @@
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->
             <section class="content-header">
-                <h1>
-                    TABLEAU DE BORD
-                    <small>Panneau de configuration</small>
-                </h1>
                 <ol class="breadcrumb">
                     <li><a href="#"><i class="fa fa-dashboard"></i> ACCUEIL</a></li>
                     <li class="active">TABLEAU DE BORD</li>
                 </ol>
             </section>
+    </br>
 
             <!-- Main content -->
             <section class="content">

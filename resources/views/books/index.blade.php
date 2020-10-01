@@ -14,7 +14,7 @@
         @endif
     </div>
     <div class="box-header">
-        <h3 class="box-title">BOOKS</h3>
+        <h3 class="box-title"><span class="glyphicon glyphicon-book"></span> LIVRES</h3>
     </div>
     <div class="box-title">
         <a style="margin: 19px;" href="{{ route('books.create')}}" class="btn btn-primary"><span class="glyphicon glyphicon-floppy-save"></span></a>
@@ -24,11 +24,12 @@
         <table id="example1" class="table table-bordered table-striped">
             <thead>
                 <tr>
-                    <th>Nom</th>
+                    <th>Titre</th>
                     <th>Photo</th>
                     <th>Auteur</th>
                     <th>Editeur</th>
                     <th>Person Name</th>
+                    <th>Show</th>
                     <th>Edit</th>
                     <th>Delete</th>
 
@@ -43,6 +44,7 @@
                     <td>{{$book->auteur}}</td>
                     <td>{{$book->editeur}}</td>
                     <td>{{$book->people->nom}}</td>
+                    <td><a href="{{ route('books.show',$book )}}"><span class="glyphicon glyphicon-book"></span></a></td>
                     <td><a href="{{ route('books.edit',$book->id)}}"><span class="glyphicon glyphicon-edit"></span></a></td>
                     <td>
 
@@ -66,6 +68,7 @@
                     <th>Auteur</th>
                     <th>Editeur</th>
                     <th>Person Name</th>
+                    <th>Show</th>
                     <th>Edit</th>
                     <th>Delete</th>
                 </tr>

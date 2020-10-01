@@ -21,7 +21,7 @@
             @csrf
             <div class="box-body">
                 <div class="form-group">
-                    <label for="nom">Nom</label>
+                    <label for="nom">Titre du livre</label>
                     <input type="text" class="form-control" name="nom" id="nom" placeholder="Entrer un nom" />
                 </div>
                 <div class="form-group">
@@ -49,7 +49,7 @@
                     <input type="text" class="form-control" name="sharetext" id="sharetext" placeholder="Entrer Share text" />
                 </div>
                 <div class="form-group">
-                    <label for="person_name">Person name</label>
+                    <label for="person_name">Personnalite</label>
                     <select class="form-control @error('people_id') is-invalid @enderror" name="people_id">
                         @foreach ( $peoples as $people )
                         <option value="{{$people->id }}">{{ $people->nom }}</option>
