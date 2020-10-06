@@ -26,13 +26,13 @@
             </ul>
             <div class="tab-content">
                 <div class="tab-pane active" id="tab_1">
-                    <b>Editeur :</b>
+                    <b><span class="glyphicon glyphicon-user text-yellow"></span> Editeur :</b>
 
                     <p>{{$book->editeur}}.</p>
-                    <b>Notes :</b>
+                    <b><i class="glyphicon glyphicon-book text-yellow" aria-hidden="true"></i> Notes :</b>
                     <p>{{$book->notes}}.</p>
                     <b>Lien D'achat :</b>
-                    <p>{{$book->purch_link}}.</p>
+                    <p><a href="{{$book->purch_link}}" target="_blank"><i class="glyphicon glyphicon-new-window text-yellow" aria-hidden="true"></i> Liens d'achat</a>.</p>
                 </div>
                 <!-- /.tab-pane -->
                 <div class="tab-pane" id="tab_2">
@@ -44,10 +44,10 @@
                 </div>
                 <!-- /.tab-pane -->
                 <div class="tab-pane" id="tab_3">
-                    <b>Text :</b>
+                    <b><span class="glyphicon glyphicon-bullhorn text-yellow"></span> Text :</b>
 
                     <p>{{$book->sharetext}}.</p>
-                    <b>Date :</b>
+                    <b><span class="glyphicon glyphicon-calendar text-yellow"></span> Date :</b>
                     {{$book->created_at}}.
                 </div>
                 <!-- /.tab-pane -->

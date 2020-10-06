@@ -14,7 +14,7 @@
         @endif
     </div>
     <div class="box-header">
-        <h3 class="box-title">SUGGESTIONS</h3>
+        <h3 class="box-title"><span class="glyphicon glyphicon-tags"></span> SUGGESTIONS</h3>
     </div>
     <div class="box-title">
         <a style="margin: 19px;" href="{{ route('suggestions.create')}}" class="btn btn-primary"><span class="glyphicon glyphicon-floppy-save"></span></a>

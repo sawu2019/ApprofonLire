@@ -14,10 +14,10 @@
         @endif
     </div>
     <div class="box-header">
-        <h3 class="box-title"><span class="glyphicon glyphicon-user"></span> PERSONNALITES</h3>
+        <h3 class="box-title"><span class="glyphicon glyphicon-book"></span> LIBRAIRIE</h3>
     </div>
     <div class="box-title">
-        <a style="margin: 19px;" href="{{ route('peoples.create')}}" class="btn btn-primary"><span class="glyphicon glyphicon-floppy-save"></span></a>
+        <a style="margin: 19px;" href="{{ route('bookstores.create')}}" class="btn btn-primary"><span class="glyphicon glyphicon-floppy-save"></span></a>
     </div>
     <!-- /.box-header -->
     <div class="box-body">
@@ -25,10 +25,10 @@
             <thead>
                 <tr>
                     <th>Nom</th>
-                    <th>Photo</th>
-                    <th>Titre</th>
-                    <th>Editeur Source</th>
-                    <th>Interview Link</th>
+                    <th>Complement</th>
+                    <th>Adresse</th>
+                    <th>Ville</th>
+                    <th>Telephone</th>
                     <th>Edit</th>
                     <th>Delete</th>
 
@@ -36,22 +36,22 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($peoples as $people)
+                @foreach($bookstores as $bookstore)
                 <tr>
-                    <td>{{$people->nom}}</td>
-                    <td>{{$people->photo}}</td>
-                    <td>{{$people->title}}</td>
-                    <td>{{$people->ed_source}}</td>
-                    <td>{{$people->int_link}}</td>
-                    <td><a href="{{ route('peoples.edit',$people->id)}}"><span class="glyphicon glyphicon-edit"></span></a></td>
+                    <td>{{$bookstore->nom}}</td>
+                    <td>{{$bookstore->complement}}</td>
+                    <td>{{$bookstore->adresse}}</td>
+                    <td>{{$bookstore->ville}}</td>
+                    <td>{{$bookstore->telephone}}</td>
+                    <td><a href="{{ route('bookstores.edit',$bookstore->id)}}"><span class="glyphicon glyphicon-edit"></span></a></td>
                     <td>
 
-                        <form id="delete-form-{{$people->id}}" method="POST" action="{{ route('peoples.destroy',$people->id)}}" style="display: none;">
+                        <form id="delete-form-{{$bookstore->id}}" method="POST" action="{{ route('bookstores.destroy',$bookstore->id)}}" style="display: none;">
                             {{csrf_field()}}
                             {{method_field('DELETE')}}
 
                         </form>
-                        <a href="" onclick="if(confirm('Vous voulais, supprimer ?')){event.preventDefault();document.getElementById('delete-form-{{$people->id}}').submit();}
+                        <a href="" onclick="if(confirm('Vous voulais, supprimer ?')){event.preventDefault();document.getElementById('delete-form-{{$bookstore->id}}').submit();}
                         else
                         {event.preventDefault();}"><span class="glyphicon glyphicon-trash"></span></a>
                     </td>
@@ -62,10 +62,10 @@
             <tfoot>
                 <tr>
                     <th>Nom</th>
-                    <th>Photo</th>
-                    <th>Titre</th>
-                    <th>Editeur Source</th>
-                    <th>Interview Link</th>
+                    <th>Complement</th>
+                    <th>Adresse</th>
+                    <th>Ville</th>
+                    <th>Telephone</th>
                     <th>Edit</th>
                     <th>Delete</th>
                 </tr>

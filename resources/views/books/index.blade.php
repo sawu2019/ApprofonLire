@@ -28,7 +28,7 @@
                     <th>Photo</th>
                     <th>Auteur</th>
                     <th>Editeur</th>
-                    <th>Person Name</th>
+                    <th>Personnalite</th>
                     <th>Show</th>
                     <th>Edit</th>
                     <th>Delete</th>
@@ -67,7 +67,7 @@
                     <th>Photo</th>
                     <th>Auteur</th>
                     <th>Editeur</th>
-                    <th>Person Name</th>
+                    <th>Personnalite</th>
                     <th>Show</th>
                     <th>Edit</th>
                     <th>Delete</th>

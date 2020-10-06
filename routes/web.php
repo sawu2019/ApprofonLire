@@ -26,3 +26,5 @@ Route::resource('peoples', 'PeopleController');
 Route::resource('books', 'BookController');
 //route pour suggestions
 Route::resource('suggestions', 'SuggestionController');
+//route pour bootstores
+Route::resource('bookstores', 'BookstoreController');

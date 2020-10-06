@@ -22,26 +22,12 @@
 
       <div class="info-box-content">
         <span class="info-box-text">ENTREPRISES</span>
-        <span class="info-box-number">{{ $economie->count() }}</span>
+        <span class="info-box-number">{{ $entreprise->count() }}</span>
       </div>
       <!-- /.info-box-content -->
     </div>
     <!-- /.info-box -->
   </div>
-  <div class="col-md-3 col-sm-6 col-xs-12">
-    <div class="info-box">
-      <span class="info-box-icon bg-green"><i class="fa fa-laptop" aria-hidden="true"></i></span>
-
-      <div class="info-box-content">
-        <span class="info-box-text">HIGH TECH</span>
-        <span class="info-box-number">{{ $social->count() }}</span>
-      </div>
-      <!-- /.info-box-content -->
-    </div>
-    <!-- /.info-box -->
-  </div>
-
-  <!-- /.col -->
   <div class="col-md-3 col-sm-6 col-xs-12">
     <div class="info-box">
       <span class="info-box-icon bg-yellow"><i class="fa fa-home" aria-hidden="true"></i></span>
@@ -49,6 +35,21 @@
       <div class="info-box-content">
         <span class="info-box-text">HABITAT</span>
         <span class="info-box-number">{{ $habitat->count() }}</span>
+      </div>
+      <!-- /.info-box-content -->
+    </div>
+    <!-- /.info-box -->
+  </div>
+
+  <!-- /.col -->
+
+  <div class="col-md-3 col-sm-6 col-xs-12">
+    <div class="info-box">
+      <span class="info-box-icon bg-green"><i class="fa fa-laptop" aria-hidden="true"></i></span>
+
+      <div class="info-box-content">
+        <span class="info-box-text">HIGH TECH</span>
+        <span class="info-box-number">{{ $hightech->count() }}</span>
       </div>
       <!-- /.info-box-content -->
     </div>
@@ -64,11 +65,11 @@
 
   <div class="col-md-3 col-sm-6 col-xs-12">
     <div class="info-box">
-      <span class="info-box-icon bg-blue"><i class="fa fa-heartbeat" aria-hidden="true"></i></span>
+      <span class="info-box-icon bg-blue"><i class="ion ion-ios-people-outline" aria-hidden="true"></i></span>
 
       <div class="info-box-content">
-        <span class="info-box-text">SANTE</span>
-        <span class="info-box-number">{{ $sante->count() }}</span>
+        <span class="info-box-text">SOCIAL</span>
+        <span class="info-box-number">{{ $social->count() }}</span>
       </div>
       <!-- /.info-box-content -->
     </div>
@@ -77,7 +78,7 @@
   <!-- /.col -->
   <div class="col-md-3 col-sm-6 col-xs-12">
     <div class="info-box">
-      <span class="info-box-icon bg-black"><i class="fa fa-futbol-o"></i></span>
+      <span class="info-box-icon bg-purple"><i class="fa fa-futbol-o"></i></span>
 
       <div class="info-box-content">
         <span class="info-box-text">SPORT</span>

@@ -14,7 +14,9 @@ class BookstoreController extends Controller
      */
     public function index()
     {
-        //
+        $bookstores = Bookstore::all();
+
+        return view('bookstores.index', compact('bookstores'));
     }
 
     /**
@@ -24,7 +26,7 @@ class BookstoreController extends Controller
      */
     public function create()
     {
-        //
+        return view('bookstores.create');
     }
 
     /**
@@ -35,7 +37,41 @@ class BookstoreController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nom',
+            'complement',
+            'adresse',
+            'ville',
+            'latitude',
+            'longitude',
+            'coordinates',
+            'code_insee',
+            'adresse_complet',
+            'siret',
+            'mail',
+            'telephone',
+            'site',
+            'nom_city_ver'
+        ]);
+
+        $bookstore = new Bookstore([
+            'nom' => $request->get('nom'),
+            'complement' => $request->get('complement'),
+            'adresse' => $request->get('adresse'),
+            'ville' => $request->get('ville'),
+            'latitude' => $request->get('latitude'),
+            'longitude' => $request->get('longitude'),
+            'coordinates' => $request->get('coordinates'),
+            'code_insee' => $request->get('code_insee'),
+            'adresse_complet' => $request->get('adresse_complet'),
+            'siret' => $request->get('siret'),
+            'mail' => $request->get('mail'),
+            'telephone' => $request->get('telephone'),
+            'site' => $request->get('site'),
+            'nom_city_ver' => $request->get('nom_city_ver')
+        ]);
+        $bookstore->save();
+        return redirect('/bookstores')->with('success', 'Bookstore saved!');
     }
 
     /**
@@ -55,9 +91,10 @@ class BookstoreController extends Controller
      * @param  \App\Bookstore  $bookstore
      * @return \Illuminate\Http\Response
      */
-    public function edit(Bookstore $bookstore)
+    public function edit($id)
     {
-        //
+        $bookstore = Bookstore::find($id);
+        return view('bookstores.edit', compact('bookstore'));
     }
 
     /**
@@ -67,10 +104,46 @@ class BookstoreController extends Controller
      * @param  \App\Bookstore  $bookstore
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Bookstore $bookstore)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+
+            'nom' => 'required',
+            'complement' => 'required',
+            'adresse' => 'required',
+            'ville' => 'required',
+            'latitude' => 'required',
+            'longitude' => 'required',
+            'coordinates' => 'required',
+            'code_insee' => 'required',
+            'adresse_complet' => 'required',
+            'siret' => 'required',
+            'mail' => 'required',
+            'telephone' => 'required',
+            'site' => 'required',
+            'nom_city_ver' => 'required'
+        ]);
+
+        $bookstore = Bookstore::find($id);
+        $bookstore->nom =  $request->get('nom');
+        $bookstore->complement = $request->get('complement');
+        $bookstore->adresse = $request->get('adresse');
+        $bookstore->ville = $request->get('ville');
+        $bookstore->latitude = $request->get('latitude');
+        $bookstore->longitude =  $request->get('longitude');
+        $bookstore->coordinates = $request->get('coordinates');
+        $bookstore->code_insee = $request->get('code_insee');
+        $bookstore->adresse_complet = $request->get('adresse_complet');
+        $bookstore->siret = $request->get('siret');
+        $bookstore->mail = $request->get('mail');
+        $bookstore->telephone = $request->get('telephone');
+        $bookstore->site = $request->get('site');
+        $bookstore->nom_city_ver = $request->get('nom_city_ver');
+        $bookstore->save();
+
+        return redirect('/bookstores')->with('success', 'Bookstore updated!');
     }
+
 
     /**
      * Remove the specified resource from storage.
@@ -78,8 +151,9 @@ class BookstoreController extends Controller
      * @param  \App\Bookstore  $bookstore
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Bookstore $bookstore)
+    public function destroy($id)
     {
-        //
+        bookstore::where('id', $id)->delete();
+        return redirect()->back();
     }
 }

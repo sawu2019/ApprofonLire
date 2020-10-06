@@ -26,7 +26,7 @@ class PeopleController extends Controller
         return view('peoples.index', compact('peoples'));
     }
 
-    public function economie()
+    public function entreprise()
     {
         $peoples = People::where('categorie_id','2')->get();
         return view('peoples.index', compact('peoples'));
@@ -38,7 +38,7 @@ class PeopleController extends Controller
         return view('peoples.index', compact('peoples'));
     }
 
-    public function sante()
+    public function hightech()
     {
         $peoples = People::where('categorie_id','4')->get();
         return view('peoples.index', compact('peoples'));

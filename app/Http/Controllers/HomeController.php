@@ -27,12 +27,12 @@ class HomeController extends Controller
     {
         $data = DB::table('People','categories')->get();
         $culture = People::where('categorie_id','1')->get();
-        $economie = People::where('categorie_id','2')->get();
+        $entreprise = People::where('categorie_id','2')->get();
         $habitat = People::where('categorie_id','3')->get();
-        $sante = People::where('categorie_id','4')->get();
+        $hightech = People::where('categorie_id','4')->get();
         $social = People::where('categorie_id','5')->get();
         $sport = People::where('categorie_id','6')->get();
         $politique = People::where('categorie_id','7')->get();
-        return view('home', compact('data','culture','economie','habitat','sante','social','sport','politique'));
+        return view('home', compact('data','culture','entreprise','habitat','hightech','social','sport','politique'));
     }
 }
