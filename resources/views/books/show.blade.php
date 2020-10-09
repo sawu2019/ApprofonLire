@@ -31,6 +31,10 @@
                     <p>{{$book->editeur}}.</p>
                     <b><i class="glyphicon glyphicon-book text-yellow" aria-hidden="true"></i> Notes :</b>
                     <p>{{$book->notes}}.</p>
+                    <div class="attachment-block clearfix">
+                    <b>Couverture du Livre :</b>
+                    <p><img src="{{asset($book->photo) }}" class="attachment-img" alt="Attachment Image"></p>
+                    </div>
                     <b>Lien D'achat :</b>
                     <p><a href="{{$book->purch_link}}" target="_blank"><i class="glyphicon glyphicon-new-window text-yellow" aria-hidden="true"></i> Liens d'achat</a>.</p>
                 </div>
