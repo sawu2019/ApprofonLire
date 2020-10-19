@@ -322,7 +322,7 @@
                     </li>
                     <li class="header">MENUS</li>
                     <li><a href="{{ route('books.index') }}"><i class="fa fa-book text-red"></i> <span>LIVRES</span></a></li>
-                    <li><a href="{{ route('bookstores.index') }}"><i class="fa fa-book text-yellow"></i> <span>LIBRAIRIE</span></a></li>
+                    <li><a href="{{ route('bookstores.index') }}"><i class="fa fa-home text-yellow"></i> <span>LIBRAIRIE</span></a></li>
                     <li><a href="{{ route('peoples.index') }}"><i class="fa fa-user text-blue"></i> <span>PERSONNALITE</span></a></li>
                     <li><a href="{{ route('suggestions.index') }}"><i class="fa fa-thumbs-up text-aqua"></i> <span>SUGGESTIONS</span></a></li>
                 </ul>

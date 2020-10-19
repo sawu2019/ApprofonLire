@@ -22,6 +22,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
 //route pour peoples
 Route::resource('peoples', 'PeopleController');
+
 //route pour books
 Route::resource('books', 'BookController');
 //route pour suggestions

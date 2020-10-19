@@ -12,4 +12,8 @@ class Categorie extends Model
     {
         return $this->hasMany('App\People');
     }
+
+    public function subcategories(){
+        return $this->hasMany('App\Categorie', 'parent_id');
+    }
 }
