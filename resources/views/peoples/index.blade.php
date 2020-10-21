@@ -25,10 +25,10 @@
             <thead>
                 <tr>
                     <th>Nom</th>
-                    <th>Photo</th>
                     <th>Titre</th>
+                    <th>Categorie</th>
                     <th>Editeur Source</th>
-                    <th>Interview Link</th>
+                    <th>Show</th>
                     <th>Edit</th>
                     <th>Delete</th>
 
@@ -39,10 +39,10 @@
                 @foreach($peoples as $people)
                 <tr>
                     <td>{{$people->nom}}</td>
-                    <td>{{$people->photo}}</td>
                     <td>{{$people->title}}</td>
+                    <td>{{$people->categorie->nom}}</td>
                     <td>{{$people->ed_source}}</td>
-                    <td>{{$people->int_link}}</td>
+                    <td><a href="{{ route('peoples.show',$people )}}"><span class="glyphicon glyphicon-book"></span></a></td>
                     <td><a href="{{ route('peoples.edit',$people->id)}}"><span class="glyphicon glyphicon-edit"></span></a></td>
                     <td>
 
@@ -62,10 +62,10 @@
             <tfoot>
                 <tr>
                     <th>Nom</th>
-                    <th>Photo</th>
                     <th>Titre</th>
+                    <th>Categorie</th>
                     <th>Editeur Source</th>
-                    <th>Interview Link</th>
+                    <th>Show</th>
                     <th>Edit</th>
                     <th>Delete</th>
                 </tr>

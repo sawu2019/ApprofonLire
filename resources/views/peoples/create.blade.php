@@ -55,7 +55,8 @@
                 </div>
                 <div class="form-group">
                     <label for="int_sub_categ">Interview Sub Categorie</label>
-                    <input type="text" class="form-control" name="int_sub_categ" id="int_sub_categ" placeholder="Entrer Interview Sub Categories" />
+                    <input type="text" class="form-control" name="int_sub_categ" id="int_sub_categ" placeholder="Entrer Interview Sub Categories
+" />
                         
                     </select>
                 </div>
@@ -71,41 +72,5 @@
                 <button type="submit" class="btn btn-primary">ENVOYEZ</button>
             </div>
         </form>
-        <script type="text/javascript">
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
-
-            $(document).ready(function () {
-             
-                $('#category').on('change',function(e) {
-                 
-                 var cat_id = e.target.value;
-
-                 $.ajax({
-                       
-                       url:"{{ route('peoples.create') }}",
-                       type:"POST",
-                       data: {
-                           cat_id: cat_id
-                        },
-                      
-                       success:function (data) {
-
-                        $('#subcategory').empty();
-
-                        $.each(data.subcategories[0].subcategories,function(index,subcategory){
-                            
-                            $('#subcategory').append('<option value="'+subcategory.id+'">'+subcategory.name+'</option>');
-                        })
-
-                       }
-                   })
-                });
-
-            });
-        </script>
     </div>
     @endsection

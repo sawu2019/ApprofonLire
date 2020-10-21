@@ -62,6 +62,7 @@ class PeopleController extends Controller
         return view('peoples.index', compact('peoples'));
     }
 
+
     /**
      * Show the form for creating a new resource.
      *
@@ -70,6 +71,7 @@ class PeopleController extends Controller
     public function create()
     {
         $categories = Categorie::all();
+        
         return view('peoples.create', compact('peoples','categories'));
     }
 
@@ -111,9 +113,11 @@ class PeopleController extends Controller
      * @param  \App\People  $people
      * @return \Illuminate\Http\Response
      */
-    public function show(People $people)
+    public function show($id)
     {
-        //
+        $categorie = Categorie::all();;
+        $people = People::find($id);
+        return view('peoples.show', compact('people','categorie'));
     }
 
     /**
