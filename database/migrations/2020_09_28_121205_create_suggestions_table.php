@@ -19,6 +19,7 @@ class CreateSuggestionsTable extends Migration
             $table->string('int_link');
             $table->string('book_aut');
             $table->string('type');
+            $table->string('image');
             $table->string('user_mail');
             $table->timestamps();
         });

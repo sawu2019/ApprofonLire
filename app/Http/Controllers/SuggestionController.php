@@ -42,14 +42,16 @@ class SuggestionController extends Controller
             'int_link',
             'book_aut',
             'type',
+            'image',
             'user_mail'
         ]);
-
+        $imagePath = request('image')->store('uploads', 'public');
         $suggestion = new Suggestion([
             'nom' => $request->get('nom'),
             'int_link' => $request->get('int_link'),
             'book_aut' => $request->get('book_aut'),
             'type' => $request->get('type'),
+            'image' => $imagePath,
             'user_mail' => $request->get('user_mail')
         ]);
         $suggestion->save();
@@ -89,11 +91,11 @@ class SuggestionController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'nom'=>'required',
-            'int_link'=>'required',
-            'book_aut'=>'required',
-            'type'=>'required',
-            'user_mail'=>'required'
+            'nom' => 'required',
+            'int_link' => 'required',
+            'book_aut' => 'required',
+            'type' => 'required',
+            'user_mail' => 'required'
         ]);
 
         $suggestion = Suggestion::find($id);

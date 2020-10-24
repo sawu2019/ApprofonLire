@@ -25,7 +25,6 @@
             <thead>
                 <tr>
                     <th>Titre</th>
-                    <th>Photo</th>
                     <th>Auteur</th>
                     <th>Editeur</th>
                     <th>Personnalite</th>
@@ -40,7 +39,6 @@
                 @foreach($books as $book)
                 <tr>
                     <td>{{$book->nom}}</td>
-                    <td>{{$book->photo}}</td>
                     <td>{{$book->auteur}}</td>
                     <td>{{$book->editeur}}</td>
                     <td>{{$book->people->nom}}</td>
@@ -64,7 +62,6 @@
             <tfoot>
                 <tr>
                     <th>Nom</th>
-                    <th>Photo</th>
                     <th>Auteur</th>
                     <th>Editeur</th>
                     <th>Personnalite</th>

@@ -17,7 +17,7 @@
             </ul>
         </div><br />
         @endif
-        <form method="post" action="{{ route('suggestions.store') }}">
+        <form method="post" action="{{ route('suggestions.store') }}" enctype="multipart/form-data">
             @csrf
             <div class="box-body">
                 <div class="form-group">
@@ -37,9 +37,14 @@
                     <input type="text" class="form-control" name="type" id="type" placeholder="Entrer Editeur Type" />
                 </div>
                 <div class="form-group">
+                    <label for="image">Couverture du livre</label>
+                    <input type="file" class="custom-file-input" name="image" id="image" placeholder="Choisir un  image" />
+                </div>
+                <div class="form-group">
                     <label for="user_mail">Mail</label>
                     <input type="mail" class="form-control" name="user_mail" id="user_mail" placeholder="Entrer Mail" />
                 </div>
+                
 
             </div>
             <!-- /.box-body -->

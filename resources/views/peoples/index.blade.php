@@ -42,7 +42,7 @@
                     <td>{{$people->title}}</td>
                     <td>{{$people->categorie->nom}}</td>
                     <td>{{$people->ed_source}}</td>
-                    <td><a href="{{ route('peoples.show',$people )}}"><span class="glyphicon glyphicon-book"></span></a></td>
+                    <td><a href="{{ route('peoples.show',$people )}}"><span class="glyphicon glyphicon-user"></span></a></td>
                     <td><a href="{{ route('peoples.edit',$people->id)}}"><span class="glyphicon glyphicon-edit"></span></a></td>
                     <td>
 

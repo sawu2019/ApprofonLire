@@ -14,7 +14,7 @@
         @endif
     </div>
     <div class="box-header">
-        <h3 class="box-title"><span class="glyphicon glyphicon-tags"></span> SUGGESTIONS</h3>
+        <h3 class="box-title"><span class="glyphicon glyphicon-tasks"></span> SUGGESTIONS</h3>
     </div>
     <div class="box-title">
         <a style="margin: 19px;" href="{{ route('suggestions.create')}}" class="btn btn-primary"><span class="glyphicon glyphicon-floppy-save"></span></a>
@@ -25,6 +25,7 @@
             <thead>
                 <tr>
                     <th>Nom</th>
+                    <th>Image</th>
                     <th>Intervew Link</th>
                     <th>Book auteur</th>
                     <th>Type</th>
@@ -39,7 +40,8 @@
                 @foreach($suggestions as $suggestion)
                 <tr>
                     <td>{{$suggestion->nom}}</td>
-                    <td>{{$suggestion->int_link}}</td>
+                    <td class="attachment-block clearfix"><img src="{{asset('storage'). '/'. $suggestion->image}}" class="attachment-img" alt="Attachment Image"></td>
+                    <td><a href="{{$suggestion->int_link}}" target="_blank"><i class="glyphicon glyphicon-new-window text-yellow" aria-hidden="true"></i> Liens d'Interview</a></td>
                     <td>{{$suggestion->book_aut}}</td>
                     <td>{{$suggestion->type}}</td>
                     <td>{{$suggestion->user_mail}}</td>
@@ -62,6 +64,7 @@
             <tfoot>
                 <tr>
                     <th>Nom</th>
+                    <th>Image</th>
                     <th>Intervew Link</th>
                     <th>Book auteur</th>
                     <th>Type</th>
