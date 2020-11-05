@@ -4,9 +4,19 @@ namespace App\Http\Controllers;
 
 use App\Bookstore;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class BookstoreController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth')->except(['index','show']);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -17,6 +27,12 @@ class BookstoreController extends Controller
         $bookstores = Bookstore::all();
 
         return view('bookstores.index', compact('bookstores'));
+    }
+
+    public function allbookstores()
+    {
+        $bookstores = Bookstore::latest()->paginate(4);
+        return view('bookstores.allbookstores', compact('bookstores'));
     }
 
     /**
@@ -80,9 +96,10 @@ class BookstoreController extends Controller
      * @param  \App\Bookstore  $bookstore
      * @return \Illuminate\Http\Response
      */
-    public function show(Bookstore $bookstore)
+    public function show($id)
     {
-        //
+        $bookstore = Bookstore::find($id);
+        return view('bookstores.show', compact('bookstore'));
     }
 
     /**
@@ -93,6 +110,9 @@ class BookstoreController extends Controller
      */
     public function edit($id)
     {
+        if (Gate::denies('edit-users')) {
+            return redirect()->route('bookstores.index');
+        }
         $bookstore = Bookstore::find($id);
         return view('bookstores.edit', compact('bookstore'));
     }
@@ -153,6 +173,9 @@ class BookstoreController extends Controller
      */
     public function destroy($id)
     {
+        if (Gate::denies('delete-users')) {
+            return redirect()->route('bookstores.index');
+        }
         bookstore::where('id', $id)->delete();
         return redirect()->back();
     }

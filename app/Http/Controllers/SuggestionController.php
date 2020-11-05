@@ -4,9 +4,19 @@ namespace App\Http\Controllers;
 
 use App\Suggestion;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class SuggestionController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth')->except(['index','show']);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -77,6 +87,9 @@ class SuggestionController extends Controller
      */
     public function edit($id)
     {
+        if (Gate::denies('delete-users')) {
+            return redirect()->route('suggestions.index');
+        }
         $suggestion = Suggestion::find($id);
         return view('suggestions.edit', compact('suggestion'));
     }
@@ -117,6 +130,9 @@ class SuggestionController extends Controller
      */
     public function destroy($id)
     {
+        if (Gate::denies('delete-users')) {
+            return redirect()->route('suggestions.index');
+        }
         suggestion::where('id', $id)->delete();
         return redirect()->back();
     }

@@ -42,11 +42,7 @@
                 </div>
                 <div class="form-group">
                     <label for="notes">Notes</label>
-                    <input type="text" class="form-control" name="notes" id="notes" placeholder="Entrer Notes" />
-                </div>
-                <div class="form-group">
-                    <label for="sharetext">Share text</label>
-                    <input type="text" class="form-control" name="sharetext" id="sharetext" placeholder="Entrer Share text" />
+                    <textarea class="form-control" rows="3" name="notes" id="notes" placeholder="Entrer Notes"></textarea>
                 </div>
                 <div class="form-group">
                     <label for="person_name">Personnalite</label>
@@ -61,6 +57,12 @@
                     </div>
                     @enderror
                 </div>
+                <div class="form-group">
+                    <label for="sharetext">Share text</label>
+                    <input type="text" class="form-control" name="sharetext" id="sharetext" placeholder="Entrer Share text" />
+                </div>
+
+
 
             </div>
             <!-- /.box-body -->

@@ -3,11 +3,23 @@
 namespace App\Http\Controllers;
 
 use App\Categorie;
+use App\User;
 use App\People;
+use App\Subcategorie;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class PeopleController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth')->except(['index','show']);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -20,49 +32,82 @@ class PeopleController extends Controller
         return view('peoples.index', compact('peoples'));
     }
 
-    public function culture()
+    public function Beaux_livres()
     {
         $peoples = People::where('categorie_id','1')->get();
         return view('peoples.index', compact('peoples'));
     }
 
-    public function entreprise()
+    public function Bd_mangas()
     {
         $peoples = People::where('categorie_id','2')->get();
         return view('peoples.index', compact('peoples'));
     }
 
-    public function habitat()
+    public function Economie_droit()
     {
         $peoples = People::where('categorie_id','3')->get();
         return view('peoples.index', compact('peoples'));
     }
 
-    public function hightech()
+    public function Essais_documents()
     {
         $peoples = People::where('categorie_id','4')->get();
         return view('peoples.index', compact('peoples'));
     }
 
-    public function social()
+    public function Fiction_romans()
     {
         $peoples = People::where('categorie_id','5')->get();
         return view('peoples.index', compact('peoples'));
     }
 
-    public function sport()
+    public function Jeunesse()
     {
         $peoples = People::where('categorie_id','6')->get();
         return view('peoples.index', compact('peoples'));
     }
 
-    public function politique()
+    public function Litterature_classique()
     {
         $peoples = People::where('categorie_id','7')->get();
         return view('peoples.index', compact('peoples'));
     }
 
+    public function Science_techniques()
+    {
+        $peoples = People::where('categorie_id','8')->get();
+        return view('peoples.index', compact('peoples'));
+    }
 
+    public function Scolaires()
+    {
+        $peoples = People::where('categorie_id','9')->get();
+        return view('peoples.index', compact('peoples'));
+    }
+
+    public function Science_humaines()
+    {
+        $peoples = People::where('categorie_id','10')->get();
+        return view('peoples.index', compact('peoples'));
+    }
+
+    public function Podcast()
+    {
+        $peoples = People::where('categorie_id','11')->get();
+        return view('peoples.index', compact('peoples'));
+    }
+
+    public function Pratique()
+    {
+        $peoples = People::where('categorie_id','12')->get();
+        return view('peoples.index', compact('peoples'));
+    }
+    public function allpeoples()
+    {
+        $peoples = People::latest()->paginate(4);
+        return view('peoples.allpeoples', compact('peoples'));
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -128,6 +173,10 @@ class PeopleController extends Controller
      */
     public function edit($id)
     {
+        if (Gate::denies('edit-users')) {
+            return redirect()->route('peoples.index');
+        }
+
         $people = People::find($id);
         $categories = Categorie::all();
         return view('peoples.edit', compact('people','categories'));
@@ -173,11 +222,10 @@ class PeopleController extends Controller
      */
     public function destroy($id)
     {
-
+        if (Gate::denies('delete-users')) {
+            return redirect()->route('peoples.index');
+        }
         people::where('id', $id)->delete();
         return redirect()->back();
-        //$people = People::find($id);
-        //$people->delete();
-        //return redirect('/peoples')->with('success', 'People deleted!');
     }
 }

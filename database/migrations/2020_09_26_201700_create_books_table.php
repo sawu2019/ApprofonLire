@@ -21,7 +21,7 @@ class CreateBooksTable extends Migration
             $table->string('auteur');
             $table->string('editeur');
             $table->string('purch_link');
-            $table->string('notes');
+            $table->text('notes');
             $table->string('sharetext');
             $table->timestamps();
         });

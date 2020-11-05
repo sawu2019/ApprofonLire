@@ -353,13 +353,14 @@
         <!-- /.content-wrapper -->
         <footer class="main-footer">
             <div class="pull-right hidden-xs">
-                <b>Version</b> 2.3.12
+                <b>Version</b> 0.7.20
             </div>
             <strong>Copyright &copy; 2020 <a href="#">ApprofonLire</a>.</strong> Tous les droits
             réservé.
         </footer>
 
         <!-- Control Sidebar -->
+        @can('edit-users')
         <aside class="control-sidebar control-sidebar-dark">
             <!-- Create the tabs -->
             <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
@@ -536,16 +537,18 @@
 
                         <div class="form-group">
                             <label class="control-sidebar-subheading">
-                                Delete chat history
-                                <a href="javascript:void(0)" class="text-red pull-right"><i class="fa fa-trash-o"></i></a>
+                                Liste des utilisateur
+                                <a href="{{route('admin.users.index')}}" class="text-red pull-right"><i class="fa fa-list"></i></a>
                             </label>
                         </div>
+
                         <!-- /.form-group -->
                     </form>
                 </div>
                 <!-- /.tab-pane -->
             </div>
         </aside>
+        @endcan
         <!-- /.control-sidebar -->
         <!-- Add the sidebar's background. This div must be placed
        immediately after the control sidebar -->

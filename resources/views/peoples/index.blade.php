@@ -16,9 +16,11 @@
     <div class="box-header">
         <h3 class="box-title"><span class="glyphicon glyphicon-user"></span> PERSONNALITES</h3>
     </div>
+    @can('edit-users')
     <div class="box-title">
         <a style="margin: 19px;" href="{{ route('peoples.create')}}" class="btn btn-primary"><span class="glyphicon glyphicon-floppy-save"></span></a>
     </div>
+    @endcan
     <!-- /.box-header -->
     <div class="box-body">
         <table id="example1" class="table table-bordered table-striped">
@@ -29,8 +31,12 @@
                     <th>Categorie</th>
                     <th>Editeur Source</th>
                     <th>Show</th>
+                    @can('edit-users')
                     <th>Edit</th>
+                    @endcan
+                    @can('delete-users')
                     <th>Delete</th>
+                    @endcan
 
 
                 </tr>
@@ -43,7 +49,10 @@
                     <td>{{$people->categorie->nom}}</td>
                     <td>{{$people->ed_source}}</td>
                     <td><a href="{{ route('peoples.show',$people )}}"><span class="glyphicon glyphicon-user"></span></a></td>
+                    @can('edit-users')
                     <td><a href="{{ route('peoples.edit',$people->id)}}"><span class="glyphicon glyphicon-edit"></span></a></td>
+                    @endcan
+                    @can('delete-users')
                     <td>
 
                         <form id="delete-form-{{$people->id}}" method="POST" action="{{ route('peoples.destroy',$people->id)}}" style="display: none;">
@@ -55,6 +64,7 @@
                         else
                         {event.preventDefault();}"><span class="glyphicon glyphicon-trash"></span></a>
                     </td>
+                    @endcan
 
                 </tr>
                 @endforeach
@@ -66,8 +76,12 @@
                     <th>Categorie</th>
                     <th>Editeur Source</th>
                     <th>Show</th>
+                    @can('edit-users')
                     <th>Edit</th>
+                    @endcan
+                    @can('delete-users')
                     <th>Delete</th>
+                    @endcan
                 </tr>
             </tfoot>
         </table>

@@ -5,9 +5,19 @@ namespace App\Http\Controllers;
 use App\Book;
 use App\People;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class BookController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth')->except(['index','show']);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -18,6 +28,12 @@ class BookController extends Controller
         $books = Book::with('people')->get();
 
         return view('books.index', compact('books'));
+    }
+
+    public function allbooks()
+    {
+        $books = Book::latest()->paginate(4);
+        return view('books.all', compact('books'));
     }
 
     /**
@@ -40,13 +56,13 @@ class BookController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nom' => 'required',
-            'photo' => 'required',
-            'auteur' => 'required',
-            'editeur' => 'required',
-            'purch_link' => 'required',
-            'notes' => 'required',
-            'sharetext' => 'required',
+            'nom' => 'required|max:255',
+            'photo' => 'required|max:255',
+            'auteur' => 'required|max:255',
+            'editeur' => 'required|max:255',
+            'purch_link' => 'required|max:255',
+            'notes' => 'required|max:255',
+            'sharetext' => 'required|max:255',
         ]);
 
         $book = new Book([
@@ -84,6 +100,9 @@ class BookController extends Controller
      */
     public function edit($id)
     {
+        if (Gate::denies('delete-users')) {
+            return redirect()->route('books.index');
+        }
         $book = Book::find($id);
         $peoples = People::all();
         return view('books.edit', compact('book', 'peoples'));
@@ -99,13 +118,13 @@ class BookController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'nom' => 'required',
-            'photo' => 'required',
-            'auteur' => 'required',
-            'editeur' => 'required',
-            'purch_link' => 'required',
-            'notes' => 'required',
-            'sharetext' => 'required',
+            'nom' => 'required|max:255',
+            'photo' => 'required|max:255',
+            'auteur' => 'required|max:255',
+            'editeur' => 'required|max:255',
+            'purch_link' => 'required|max:255',
+            'notes' => 'required|max:255',
+            'sharetext' => 'required|max:255',
         ]);
         $book = Book::find($id);
         $book->nom =  $request->get('nom');
@@ -129,6 +148,9 @@ class BookController extends Controller
      */
     public function destroy($id)
     {
+        if (Gate::denies('delete-users')) {
+            return redirect()->route('books.index');
+        }
         book::where('id', $id)->delete();
         return redirect()->back();
     }

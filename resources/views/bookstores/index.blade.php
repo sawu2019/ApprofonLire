@@ -16,9 +16,11 @@
     <div class="box-header">
         <h3 class="box-title"><span class="glyphicon glyphicon-book"></span> LIBRAIRIE</h3>
     </div>
+    @can('edit-users')
     <div class="box-title">
         <a style="margin: 19px;" href="{{ route('bookstores.create')}}" class="btn btn-primary"><span class="glyphicon glyphicon-floppy-save"></span></a>
     </div>
+    @endcan
     <!-- /.box-header -->
     <div class="box-body">
         <table id="example1" class="table table-bordered table-striped">
@@ -29,8 +31,13 @@
                     <th>Adresse</th>
                     <th>Ville</th>
                     <th>Telephone</th>
+                    <th>Show</th>
+                    @can('edit-users')
                     <th>Edit</th>
+                    @endcan
+                    @can('delete-users')
                     <th>Delete</th>
+                    @endcan
 
 
                 </tr>
@@ -43,7 +50,11 @@
                     <td>{{$bookstore->adresse}}</td>
                     <td>{{$bookstore->ville}}</td>
                     <td>{{$bookstore->telephone}}</td>
+                    <td><a href="{{ route('bookstores.show',$bookstore )}}"><span class="glyphicon glyphicon-book"></span></a></td>
+                    @can('edit-users')
                     <td><a href="{{ route('bookstores.edit',$bookstore->id)}}"><span class="glyphicon glyphicon-edit"></span></a></td>
+                    @endcan
+                    @can('delete-users')
                     <td>
 
                         <form id="delete-form-{{$bookstore->id}}" method="POST" action="{{ route('bookstores.destroy',$bookstore->id)}}" style="display: none;">
@@ -55,6 +66,7 @@
                         else
                         {event.preventDefault();}"><span class="glyphicon glyphicon-trash"></span></a>
                     </td>
+                    @endcan
 
                 </tr>
                 @endforeach
@@ -66,8 +78,13 @@
                     <th>Adresse</th>
                     <th>Ville</th>
                     <th>Telephone</th>
+                    <th>Show</th>
+                    @can('edit-users')
                     <th>Edit</th>
+                    @endcan
+                    @can('delete-users')
                     <th>Delete</th>
+                    @endcan
                 </tr>
             </tfoot>
         </table>

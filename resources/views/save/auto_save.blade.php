@@ -233,3 +233,26 @@
 </div>
 @endsection
 
+// SHOW ALL BOOKS
+<div class="col-md-12">
+          
+<div class="box-footer">
+    @foreach($books as $book)
+    <ul class="mailbox-attachments clearfix">
+        <li >
+            <div class="attachment-block clearfix">
+                <span class="mailbox-attachment-icon has-img"><img src="{{asset($book->photo) }}" class="attachment-img" ></span>
+            </div>
+
+            <div class="mailbox-attachment-info">
+                <a href="#" class="mailbox-attachment-name"><span class="glyphicon glyphicon-book text-primary"></span> {{$book->nom}}</a>
+                <span class="mailbox-attachment-size">
+                <small>AUTEUR DU LIVRE : {{$book->auteur}} </small>
+                    <a href="#" class="btn btn-default btn-xs pull-right"><i class="fa fa-cloud-download"></i></a>
+                </span>
+            </div>
+        </li>
+    </ul>
+    @endforeach
+</div>
+</div>

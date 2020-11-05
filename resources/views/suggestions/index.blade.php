@@ -30,8 +30,12 @@
                     <th>Book auteur</th>
                     <th>Type</th>
                     <th>mail</th>
+                    @can('edit-users')
                     <th>Edit</th>
+                    @endcan
+                    @can('delete-users')
                     <th>Delete</th>
+                    @endcan
 
 
                 </tr>
@@ -45,7 +49,10 @@
                     <td>{{$suggestion->book_aut}}</td>
                     <td>{{$suggestion->type}}</td>
                     <td>{{$suggestion->user_mail}}</td>
+                    @can('edit-users')
                     <td><a href="{{ route('suggestions.edit',$suggestion->id)}}"><span class="glyphicon glyphicon-edit"></span></a></td>
+                    @endcan
+                    @can('delete-users')
                     <td>
 
                         <form id="delete-form-{{$suggestion->id}}" method="POST" action="{{ route('suggestions.destroy',$suggestion->id)}}" style="display: none;">
@@ -57,6 +64,7 @@
                         else
                         {event.preventDefault();}"><span class="glyphicon glyphicon-trash"></span></a>
                     </td>
+                    @endcan
 
                 </tr>
                 @endforeach
@@ -69,8 +77,12 @@
                     <th>Book auteur</th>
                     <th>Type</th>
                     <th>mail</th>
+                    @can('edit-users')
                     <th>Edit</th>
+                    @endcan
+                    @can('delete-users')
                     <th>Delete</th>
+                    @endcan
                 </tr>
             </tfoot>
         </table>
