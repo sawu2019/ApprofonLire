@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Book;
+use App\Exports\ExportBooks;
+use App\Imports\ImportBooks;
 use App\People;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
+use Maatwebsite\Excel\Facades\Excel;
 
 class BookController extends Controller
 {
@@ -26,16 +29,33 @@ class BookController extends Controller
     public function index()
     {
         $books = Book::with('people')->get();
-
         return view('books.index', compact('books'));
     }
-
     public function allbooks()
     {
         $books = Book::latest()->paginate(4);
         return view('books.all', compact('books'));
     }
-
+    public function importExportView()
+    {
+       return view('import');
+    }
+    /**
+    * @return \Illuminate\Support\Collection
+    */
+    public function export() 
+    {
+        return Excel::download(new ExportBooks, 'Books.xlsx');
+    }
+    /**
+    * @return \Illuminate\Support\Collection
+    */
+    public function import(Request $request) 
+    {
+        Excel::import(new ImportBooks, $request()->file('file'));
+            
+        return back();
+    }
     /**
      * Show the form for creating a new resource.
      *

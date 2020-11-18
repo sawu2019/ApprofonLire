@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Bookstore;
+use App\Exports\ExportBookstores;
+use App\Imports\ImportBookstores;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
+use Maatwebsite\Excel\Facades\Excel;
 
 class BookstoreController extends Controller
 {
@@ -33,6 +36,26 @@ class BookstoreController extends Controller
     {
         $bookstores = Bookstore::latest()->paginate(4);
         return view('bookstores.allbookstores', compact('bookstores'));
+    }
+    public function importExportView()
+    {
+       return view('import');
+    }
+    /**
+    * @return \Illuminate\Support\Collection
+    */
+    public function export() 
+    {
+        return Excel::download(new ExportBookstores, 'Bookstores.xlsx');
+    }
+    /**
+    * @return \Illuminate\Support\Collection
+    */
+    public function import(Request $request) 
+    {
+        Excel::import(new ImportBookstores, $request()->file('file'));
+            
+        return back();
     }
 
     /**

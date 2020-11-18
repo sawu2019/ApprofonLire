@@ -21,7 +21,6 @@
                     <p>{{$book->editeur}}.</p>
 
                     <div class="attachment-block clearfix">
-                        <b>Photo du Livre :</b>
                         <p><img src="{{asset($book->photo) }}" class="attachment-img" alt="Attachment Image"></p>
 
                         <div class="attachment-pushed">

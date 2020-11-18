@@ -45,10 +45,10 @@
 
   <div class="col-md-3 col-sm-6 col-xs-12">
     <div class="info-box">
-      <span class="info-box-icon bg-green"><a href="#"><i class="fa fa-thumbs-up text-white"></i></a></span>
+      <span class="info-box-icon bg-green"><a href="#"><i class="fa fa-inbox text-pink"></i></a></span>
 
       <div class="info-box-content">
-        <span class="info-box-text">LES SUGGESTIONS</span>
+        <span class="info-box-text">SOURCES MEDIAS</span>
         <span class="info-box-number">{{ $suggestion->count() }}</span>
       </div>
       <!-- /.info-box-content -->

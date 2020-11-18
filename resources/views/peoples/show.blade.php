@@ -21,7 +21,6 @@
                     <p>{{$people->nom}}.</p>
 
                     <div class="attachment-block clearfix">
-                        <b>Photo :</b>
                         <p><img src="{{asset($people->photo) }}" class="attachment-img" alt="Attachment Image"></p>
 
                     </div>

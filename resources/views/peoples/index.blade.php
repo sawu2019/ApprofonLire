@@ -19,6 +19,18 @@
     @can('edit-users')
     <div class="box-title">
         <a style="margin: 19px;" href="{{ route('peoples.create')}}" class="btn btn-primary"><span class="glyphicon glyphicon-floppy-save"></span></a>
+        <div class="btn-group">
+            <button type="button" class="btn btn-info">Action</button>
+            <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
+                <span class="caret"></span>
+                <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+                <li><a href="#"> <i class="fa fa-file-excel-o"></i> Import</a></li>
+                <li class="divider"></li>
+                <li><a href="{{ url('export') }}"> <i class="fa fa-file-excel-o"></i> Export</a></li>
+            </ul>
+        </div>
     </div>
     @endcan
     <!-- /.box-header -->
@@ -29,7 +41,7 @@
                     <th>Nom</th>
                     <th>Titre</th>
                     <th>Categorie</th>
-                    <th>Editeur Source</th>
+                    <th>Source media</th>
                     <th>Show</th>
                     @can('edit-users')
                     <th>Edit</th>
@@ -74,7 +86,7 @@
                     <th>Nom</th>
                     <th>Titre</th>
                     <th>Categorie</th>
-                    <th>Editeur Source</th>
+                    <th>Source media</th>
                     <th>Show</th>
                     @can('edit-users')
                     <th>Edit</th>

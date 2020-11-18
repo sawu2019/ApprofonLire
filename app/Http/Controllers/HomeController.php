@@ -25,7 +25,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $data = DB::table('People','categories')->get();
+        //$data = DB::table('People','categories')->get();
         $livre = DB::table('books')->get();
         $librairie = DB::table('bookstores')->get();
         $personnalite = DB::table('people')->get();

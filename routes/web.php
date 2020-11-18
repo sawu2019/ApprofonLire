@@ -40,3 +40,18 @@ Route::get('/ajax-autocomplete-search', 'SubcategorieController@selectSearch')->
 Route::get('/all', 'BookController@allbooks')->name('books.all');
 Route::get('/allbookstores', 'BookstoreController@allbookstores')->name('bookstores.allbookstores');
 Route::get('/allpeoples', 'PeopleController@allpeoples')->name('peoples.allpeoples');
+
+//import and export for controller books
+Route::post('import', 'BookController@import')->name('import');
+Route::get('export', 'BookController@export');
+Route::get('importExportView', 'BookController@importExportView');
+
+//import and export for controller bookstores
+Route::post('import', 'BookstoreController@import')->name('import');
+Route::get('export', 'BookstoreController@export');
+Route::get('importExportView', 'BookstoreController@importExportView');
+
+//import and export for controller peoples
+Route::post('import', 'PeopleController@import')->name('import');
+Route::get('export', 'PeopleController@export');
+Route::get('importExportView', 'PeopleController@importExportView');

@@ -14,11 +14,23 @@
         @endif
     </div>
     <div class="box-header">
-        <h3 class="box-title"><span class="glyphicon glyphicon-book"></span> LIBRAIRIE</h3>
+        <h3 class="box-title"><span class="glyphicon glyphicon-book"></span> LIBRAIRIES</h3>
     </div>
     @can('edit-users')
     <div class="box-title">
         <a style="margin: 19px;" href="{{ route('bookstores.create')}}" class="btn btn-primary"><span class="glyphicon glyphicon-floppy-save"></span></a>
+        <div class="btn-group">
+            <button type="button" class="btn btn-info">Action</button>
+            <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
+                <span class="caret"></span>
+                <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+                <li><a href="#"> <i class="fa fa-file-excel-o"></i> Import</a></li>
+                <li class="divider"></li>
+                <li><a href="{{ url('export') }}"> <i class="fa fa-file-excel-o"></i> Export</a></li>
+            </ul>
+        </div>
     </div>
     @endcan
     <!-- /.box-header -->

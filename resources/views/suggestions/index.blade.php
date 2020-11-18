@@ -16,9 +16,11 @@
     <div class="box-header">
         <h3 class="box-title"><span class="glyphicon glyphicon-tasks"></span> SUGGESTIONS</h3>
     </div>
+    @can('edit-users')
     <div class="box-title">
         <a style="margin: 19px;" href="{{ route('suggestions.create')}}" class="btn btn-primary"><span class="glyphicon glyphicon-floppy-save"></span></a>
     </div>
+    @endcan
     <!-- /.box-header -->
     <div class="box-body">
         <table id="example1" class="table table-bordered table-striped">

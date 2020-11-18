@@ -3,11 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Categorie;
+use App\Exports\ExportPeoples;
+use App\Imports\ImportPeoples;
 use App\User;
 use App\People;
 use App\Subcategorie;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
+use Maatwebsite\Excel\Facades\Excel;
 
 class PeopleController extends Controller
 {
@@ -107,6 +110,26 @@ class PeopleController extends Controller
     {
         $peoples = People::latest()->paginate(4);
         return view('peoples.allpeoples', compact('peoples'));
+    }
+    public function importExportView()
+    {
+       return view('import');
+    }
+    /**
+    * @return \Illuminate\Support\Collection
+    */
+    public function export() 
+    {
+        return Excel::download(new ExportPeoples, 'Peoples.xlsx');
+    }
+    /**
+    * @return \Illuminate\Support\Collection
+    */
+    public function import(Request $request) 
+    {
+        Excel::import(new ImportPeoples, $request()->file('file'));
+            
+        return back();
     }
     /**
      * Show the form for creating a new resource.
