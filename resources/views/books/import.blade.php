@@ -12,8 +12,9 @@
 
 <body>
     <div class="container">
-        <form action="{{ url('import') }}" method="POST" name="importform" enctype="multipart/form-data">
-            {{ csrf_token() }}
+    <form action="{{ route('import') }}" method="POST" enctype="multipart/form-data">
+                @csrf
+
             <div class="form-group">
                 <label for="file">File:</label>
                 <input id="file" type="file" name="file" class="form-control">

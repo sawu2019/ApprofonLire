@@ -26,7 +26,7 @@
                 <span class="sr-only">Toggle Dropdown</span>
             </button>
             <ul class="dropdown-menu" role="menu">
-                <li><a href="#"> <i class="fa fa-file-excel-o"></i> Import</a></li>
+                <li><a href="{{ route('import') }}"> <i class="fa fa-file-excel-o"></i> Import</a></li>
                 <li class="divider"></li>
                 <li><a href="{{ url('export') }}"> <i class="fa fa-file-excel-o"></i> Export</a></li>
             </ul>

@@ -5,13 +5,15 @@
 <small>AUTEUR DU LIVRE : <span class="glyphicon glyphicon-user text-yellow"></span><strong> {{$book->auteur}} </strong></small></br>
 <div class="row">
     <div class="col-md-12">
+        <!-- shared core -->
+        <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5fb907bfccd8e328"></script>
         <!-- Custom Tabs -->
         <div class="nav-tabs-custom">
             <ul class="nav nav-tabs">
                 <li class="active"><a href="#tab_1" data-toggle="tab"><strong>INFORMATION DU LIVRE</strong></a></li>
                 <li><a href="#tab_2" data-toggle="tab"><strong>PERSONNALITE DU LIVRE</strong></a></li>
                 <li><a href="#tab_3" data-toggle="tab"><strong>TEXT DE PARTAGE</strong></a></li>
-                
+
                 <li class="pull-right"><a href="#" class="text-muted"><i class="fa fa-gear"></i></a></li>
             </ul>
             <div class="tab-content">
@@ -32,9 +34,9 @@
                             <!-- /.attachment-text -->
                         </div>
                     </div>
-                    <button type="button" class="btn btn-default btn-xs"><i class="fa fa-share"></i> Share</button>
-                    <button type="button" class="btn btn-default btn-xs"><i class="fa fa-thumbs-o-up"></i> Like</button>
-                    <span class="pull-right text-muted">0 likes - 0 comments</span></br>
+                    <!-- shared button -->
+                    <div class="addthis_inline_share_toolbox"></div>
+                    </br>
                     <b>Lien D'achat :</b>
                     <p><a href="{{$book->purch_link}}" target="_blank"><i class="glyphicon glyphicon-new-window text-yellow" aria-hidden="true"></i> Liens d'achat</a>.</p>
                 </div>

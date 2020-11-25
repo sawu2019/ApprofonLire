@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Notifications\NewSuggestion;
 use App\Suggestion;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Notifications\Notifiable;
 
 class SuggestionController extends Controller
 {
@@ -65,6 +67,8 @@ class SuggestionController extends Controller
             'user_mail' => $request->get('user_mail')
         ]);
         $suggestion->save();
+        // Notification
+        //$suggestion->user->notify(new  NewSuggestion($suggestion, auth()->user()));
         return redirect('/suggestions')->with('success', 'Suggestion saved!');
     }
 

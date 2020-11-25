@@ -152,7 +152,19 @@
                     <li><a href="{{ route('bookstores.index') }}"><i class="fa fa-home text-yellow"></i> <span>LIBRAIRIES</span></a></li>
                     <li><a href="{{ route('peoples.index') }}"><i class="fa fa-user text-blue"></i> <span>PERSONNALITES</span></a></li>
                     <li><a href="#"><i class="fa fa-inbox text-pink"></i> <span>SOURCES MEDIAS</span></a></li>
-                    <li><a href="{{ route('suggestions.index') }}"><i class="fa fa-thumbs-up text-aqua"></i> <span>SUGGESTIONS</span></a></li>
+                    <!--<li><a href="#"><i class="fa fa-thumbs-up text-aqua"></i> <span>SUGGESTIONS</span></a></li>-->
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa  fa-bell-o text-red"></i> <span>SUGGESTIONS</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="{{route('livres.index')}}"><i class="fa fa-circle-o"></i> Livres</a></li>
+                            <li><a href="{{route('interview.index')}}"><i class="fa fa-circle-o"></i> Medias</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </section>
             <!-- /.sidebar -->

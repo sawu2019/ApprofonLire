@@ -26,9 +26,13 @@ Route::resource('peoples', 'PeopleController');
 //route pour books
 Route::resource('books', 'BookController');
 //route pour suggestions
-Route::resource('suggestions', 'SuggestionController');
+//Route::resource('suggestions', 'SuggestionController');
 //route pour bootstores
 Route::resource('bookstores', 'BookstoreController');
+//route pour Sublivres
+Route::resource('/livres', 'SublivresController');
+//route pour Subinterv
+Route::resource('/interview', 'SubintervController');
 
 Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function(){
     Route::resource('users', 'UsersController');
@@ -42,7 +46,7 @@ Route::get('/allbookstores', 'BookstoreController@allbookstores')->name('booksto
 Route::get('/allpeoples', 'PeopleController@allpeoples')->name('peoples.allpeoples');
 
 //import and export for controller books
-Route::post('import', 'BookController@import')->name('import');
+Route::get('/import', 'BookController@import')->name('import');
 Route::get('export', 'BookController@export');
 Route::get('importExportView', 'BookController@importExportView');
 
