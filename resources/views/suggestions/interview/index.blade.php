@@ -40,7 +40,7 @@
                 @foreach($subintervs as $subinterv)
                 <tr>
                     <td>{{$subinterv->nom}}</td>
-                    <td>{{$subinterv->url}}</td>
+                    <td><a href="{{$subinterv->url}}" target="_blank"><i class="glyphicon glyphicon-new-window text-yellow" aria-hidden="true"></i> Liens d'Interview</a></td>
                     <td>{{$subinterv->mail}}</td>
                     @can('delete-users')
                     <td>

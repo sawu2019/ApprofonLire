@@ -25,11 +25,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        //$data = DB::table('People','categories')->get();
         $livre = DB::table('books')->get();
         $librairie = DB::table('bookstores')->get();
         $personnalite = DB::table('people')->get();
-        $suggestion = DB::table('suggestions')->get();
         $Beaux_livres = People::where('categorie_id','1')->get();
         $Bd_mangas = People::where('categorie_id','2')->get();
         $Economie_droit = People::where('categorie_id','3')->get();
@@ -42,6 +40,6 @@ class HomeController extends Controller
         $Science_humaines = People::where('categorie_id','10')->get();
         $Podcast = People::where('categorie_id','11')->get();
         $Pratique = People::where('categorie_id','12')->get();
-        return view('home', compact('livre','librairie','personnalite','suggestion'));
+        return view('home', compact('livre','librairie','personnalite'));
     }
 }

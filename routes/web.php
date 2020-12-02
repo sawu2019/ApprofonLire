@@ -13,9 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'BookController@allbooks')->name('books.all');
 
 Auth::routes();
 
@@ -46,7 +44,7 @@ Route::get('/allbookstores', 'BookstoreController@allbookstores')->name('booksto
 Route::get('/allpeoples', 'PeopleController@allpeoples')->name('peoples.allpeoples');
 
 //import and export for controller books
-Route::get('/import', 'BookController@import')->name('import');
+Route::post('import', 'BookController@import');
 Route::get('export', 'BookController@export');
 Route::get('importExportView', 'BookController@importExportView');
 

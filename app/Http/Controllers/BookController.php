@@ -7,20 +7,13 @@ use App\Exports\ExportBooks;
 use App\Imports\ImportBooks;
 use App\People;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
 use Maatwebsite\Excel\Facades\Excel;
 
+
 class BookController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth')->except(['index','show']);
-    }
     /**
      * Display a listing of the resource.
      *
@@ -50,11 +43,39 @@ class BookController extends Controller
     /**
     * @return \Illuminate\Support\Collection
     */
-    public function import(Request $request) 
+    function import(Request $request)
     {
-        Excel::import(new ImportBooks, $request()->file('file'));
-            
-        return back();
+     $this->validate($request, [
+      'select_file'  => 'required|mimes:xls,xlsx'
+     ]);
+
+     $path = $request->file('select_file')->getRealPath();
+
+     $data = Excel::load($path)->get();
+
+     if($data->count() > 0)
+     {
+      foreach($data->toArray() as $key => $value)
+      {
+       foreach($value as $row)
+       {
+        $insert_data[] = array(
+         'CustomerName'  => $row['customer_name'],
+         'Gender'   => $row['gender'],
+         'Address'   => $row['address'],
+         'City'    => $row['city'],
+         'PostalCode'  => $row['postal_code'],
+         'Country'   => $row['country']
+        );
+       }
+      }
+
+      if(!empty($insert_data))
+      {
+       DB::table('tbl_customer')->insert($insert_data);
+      }
+     }
+     return back()->with('success', 'Excel Data Imported successfully.');
     }
     /**
      * Show the form for creating a new resource.

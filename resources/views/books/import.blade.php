@@ -12,12 +12,13 @@
 
 <body>
     <div class="container">
-    <form action="{{ route('import') }}" method="POST" enctype="multipart/form-data">
-                @csrf
+        <form method="post" enctype="multipart/form-data" action="{{ url('/import') }}">
+            {{csrf_field()}}
 
             <div class="form-group">
                 <label for="file">File:</label>
-                <input id="file" type="file" name="file" class="form-control">
+                <input type="file" name="select_file" />
+                <input type="submit" name="upload" class="form-control">
             </div>
             <div class="form-group">
                 <a class="btn btn-info" href="{{ url('export') }}">Export File</a>

@@ -224,7 +224,7 @@
                                 <div class="menu-info">
                                     <h4 class="control-sidebar-subheading">E-mail</h4>
 
-                                    <p>{{ Auth::user()->email }}</p>
+                                    <p>E-mail</p>
                                 </div>
                             </a>
                         </li>
@@ -235,7 +235,7 @@
                                 <div class="menu-info">
                                     <h4 class="control-sidebar-subheading">Compte crée </h4>
 
-                                    <p>{{ Auth::user()->created_at }}</p>
+                                    <p>Compte crée</p>
                                 </div>
                             </a>
                         </li>
