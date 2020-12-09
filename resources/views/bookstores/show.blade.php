@@ -1,4 +1,19 @@
 @extends('layouts.app')
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap&libraries=&v=weekly" defer></script>
+<script>
+    let map;
+
+    function initMap() {
+        map = new google.maps.Map(document.getElementById("map"), {
+            center: {
+                lat: '{{$bookstore->latitude}}',
+                lng: '{{$bookstore->longitude}}'
+            },
+            zoom: 8,
+        });
+    }
+</script>
 
 @section('content')
 <h2 class="page-header">NOM DE LIBRAIRIE : <i class="fa fa-home text-yellow"></i> {{$bookstore->nom}} </h2>
@@ -8,10 +23,10 @@
         <!-- Custom Tabs -->
         <div class="nav-tabs-custom">
             <ul class="nav nav-tabs">
-                <li class="active"><a href="#tab_1" data-toggle="tab"><strong>INFORMATION  DE LIBRAIRIE</strong></a></li>
+                <li class="active"><a href="#tab_1" data-toggle="tab"><strong>INFORMATION DE LIBRAIRIE</strong></a></li>
                 <li><a href="#tab_2" data-toggle="tab"><strong>INFORMATION ADMINISTRATIF</strong></a></li>
                 <li><a href="#tab_3" data-toggle="tab"><strong>GEOLOCALISATION</strong></a></li>
-                
+
                 <li class="pull-right"><a href="#" class="text-muted"><i class="fa fa-gear"></i></a></li>
             </ul>
             <div class="tab-content">
@@ -42,11 +57,12 @@
 
                     <b><i class="fa fa-info text-yellow"></i> Complement</b>
                     <p>{{$bookstore->complement}}</p>
-                    
+
                 </div>
                 <!-- /.tab-pane -->
                 <div class="tab-pane" id="tab_3">
-                    
+                    <div id="map"></div>
+
                     <b><span class="glyphicon glyphicon-calendar text-yellow"></span> Date :</b>
                     {{$bookstore->created_at}}.
                 </div>

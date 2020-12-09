@@ -12,8 +12,8 @@
 
 <body>
     <div class="container">
-        <form method="post" enctype="multipart/form-data" action="{{ url('/import') }}">
-            {{csrf_field()}}
+        <form action="{{ route('import',  $book) }}" method="POST" enctype="multipart/form-data">
+           csrf
 
             <div class="form-group">
                 <label for="file">File:</label>

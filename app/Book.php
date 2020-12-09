@@ -12,4 +12,9 @@ class Book extends Model
     {
         return $this->belongsTo('App\People');
     }
+
+    public function commandeur ()
+    {
+        return $this->morphTo('App\Commande', 'commandes')->latest();
+    }
 }

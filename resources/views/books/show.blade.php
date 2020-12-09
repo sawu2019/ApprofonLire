@@ -37,8 +37,9 @@
                     <!-- shared button -->
                     <div class="addthis_inline_share_toolbox"></div>
                     </br>
-                    <b>Lien D'achat :</b>
+                    <b><i class="fa fa-dollar"></i> Lien D'achat :</b>
                     <p><a href="{{$book->purch_link}}" target="_blank"><i class="glyphicon glyphicon-new-window text-yellow" aria-hidden="true"></i> Liens d'achat</a>.</p>
+                    <b><i class="fa fa-shopping-cart"></i><a href="{{ route('login') }}"> Passer la commande </a></b>
                 </div>
                 <!-- /.tab-pane -->
                 <div class="tab-pane" id="tab_2">
@@ -63,6 +64,37 @@
             <!-- /.tab-content -->
         </div>
         <!-- nav-tabs-custom -->
+        <hr>
+        <h5>Les commandes</h5>
+        <form action="{{ route('commandes.store', $book) }}" method="POST" class="mt-3">
+            @csrf
+            <div class="box-body">
+                <div class="form-group">
+                    <label for="tlivre">Titre du livre</label>
+                    <input type="text" class="form-control @error('tlivre') is-invalid @enderror" name="tlivre" id="tlivre" placeholder="Titre du livre" />
+                    @error('tlivre')
+                    <div class="invalid-feedback">{{ $errors->first('tlivre')}}</div>
+                    @enderror
+                </div>
+                <div class="form-group">
+                    <label for="telephone">Téléphone</label>
+                    <input type="text" class="form-control @error('telephone') is-invalid @enderror" name="telephone" id="telephone" placeholder="Entrer Téléphone" />
+                    @error('telephone')
+                    <div class="invalid-feedback">{{ $errors->first('telephone')}}</div>
+                    @enderror
+                </div>
+                <div class="form-group">
+                    <label for="notes">Notes</label>
+                    <textarea class="form-control @error('notes') is-invalid @enderror" rows="3" name="notes" id="notes" placeholder="Entrer Notes"></textarea>
+                    @error('notes')
+                    <div class="invalid-feedback">{{ $errors->first('notes')}}</div>
+                    @enderror
+                </div>
+                <button type="submit" class="btn btn-primary">Soumettre la commande</button>
+
+            </div>
+        </form>
     </div>
+
 </div>
 @endsection

@@ -255,6 +255,10 @@
                                 Liste des utilisateur
                                 <a href="{{route('admin.users.index')}}" class="text-red pull-right"><i class="fa fa-list"></i></a>
                             </label>
+                            <label class="control-sidebar-subheading">
+                                Liste des Commandes
+                                <a href="{{route('commandes.index')}}" class="text-red pull-right"><i class="fa fa-shopping-cart"></i></a>
+                            </label>
                         </div>
 
                         <!-- /.form-group -->

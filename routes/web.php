@@ -44,7 +44,7 @@ Route::get('/allbookstores', 'BookstoreController@allbookstores')->name('booksto
 Route::get('/allpeoples', 'PeopleController@allpeoples')->name('peoples.allpeoples');
 
 //import and export for controller books
-Route::post('import', 'BookController@import');
+Route::post('import', 'BookController@import')->name('import');
 Route::get('export', 'BookController@export');
 Route::get('importExportView', 'BookController@importExportView');
 
@@ -57,3 +57,6 @@ Route::get('importExportView', 'BookstoreController@importExportView');
 Route::post('import', 'PeopleController@import')->name('import');
 Route::get('export', 'PeopleController@export');
 Route::get('importExportView', 'PeopleController@importExportView');
+
+Route::post('commandes/{book}', 'CommandeController@store')->name('commandes.store');
+Route::resource('commandes', 'CommandeController');
